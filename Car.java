@@ -12,12 +12,7 @@ abstract class Car implements Movable {
     public double x;
     public double y;
 
-    double[][] directionList = {
-        {0, 1},
-        {1, 0},
-        {0, -1},
-        {-1, 0}
-    };
+    double[][] directionList = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     //speed x index 0
     //speed y index 1
