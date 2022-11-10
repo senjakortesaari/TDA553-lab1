@@ -1,0 +1,7 @@
+Task 1
+Should you use implementation inheritance (subclassing) or specification inheritance (interfaces)? Why? Could both be used? What advantages and disadvantages do you see?
+In the original files, all methods and variables are public, which exposes everything to other objects. Change the visibility of the methods and variables that other objects do not need to see or know.
+What visibility should you use for the different methods and variables that the classes contain? Which interface should you expose?
+Check that all files compile, then proceed to the next task.
+
+Vi valde att göra protected instansattributer, för att subklasserna ska kunna använda sig av attributen men inte några andra klasser. 
