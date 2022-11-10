@@ -1,0 +1,49 @@
+Task 1: Basic Inheritance
+Familiarize yourself with the code. It contains two Java files, Volvo240.java and Saab95.java. At the moment, the classes seem to have quite a lot in common, as both represent cars.
+
+Create an inheritance hierarchy that includes Volvo240 and Saab95, which eliminates all code duplication, and which follows the Open-Closed Principle. Make these changes without changing the functionality of the classes.
+Should you use implementation inheritance (subclassing) or specification inheritance (interfaces)? Why? Could both be used? What advantages and disadvantages do you see?
+In the original files, all methods and variables are public, which exposes everything to other objects. Change the visibility of the methods and variables that other objects do not need to see or know.
+What visibility should you use for the different methods and variables that the classes contain? Which interface should you expose?
+Check that all files compile, then proceed to the next task.
+
+
+Task 2: Action Interfaces
+In this task we continue to build on the previous one by now also implementing an interface called Movable.
+
+Create a file Movable.java, which declares an interface with the following methods:
+
+void move();
+void turnLeft();
+void turnRight();
+Make your cars implement the Movable interface, with some appropriate internal representation of their direction and position. The move method should work so that, depending on the direction, the car's x or y coordinate is increased (or decreased) according to its currentSpeed.
+
+
+Task 3: Testing
+Testing is always important when designing a program
+
+Use JUnit to write tests with 100% coverage for your car classes. (You will do a tutorial on using JUnit in Monday's exercise session. JUnit also has a lot of information online that you can look up.)
+Your tests do not have to test everything; the important thing is that you familiarize yourself with JUnit and understand how it works. (You do not need to write code contracts for your methods.) It is enough that you write test methods that test the functionality of the methods using assertEquals, etc. Then use "Run with coverage" to check that all JUnit tests pass with 100% coverage.
+
+Task 4: Sanity checks
+The car classes' methods currently have no way of controlling by how much the speed can be increased or decreased. Rewrite the methods so that:
+
+gas() and brake() only accept values in the interval [0,1],
+currentSpeed always lies in the interval [0 , enginePower],
+calls to gas() cannot result in the speed decreasing, and
+calls to brake() cannot result in the speed increasing.
+Hint: For each of these, best practice is to use the following process:
+
+Add a test that will pass if the method satisfies the condition, and fail otherwise.
+Run the tests, and check that it fails.
+Modify the code.
+Run the tests, and check that the new test passes (and the old tests all still pass!).
+
+
+Task 5: Reflection
+Write a short text file named lab1reflection.txt that answers the following questions. You can write in Swedish or English.
+
+Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+Explain how you implemented each of the sanity checks in Task 4.
+Extra task for more challenge (OPTIONAL):
+Write a simple application that uses your cars
