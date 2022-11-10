@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 abstract class Car implements Movable {
 
@@ -13,6 +11,14 @@ abstract class Car implements Movable {
     protected double y;
 
     double[][] directionList = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    // Constructors used to initalize different cars
+    public Car(int nrDoors, double enginePower,Color color, String modelName){
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
+    }
 
     //speed x index 0
     //speed y index 1
