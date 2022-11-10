@@ -12,6 +12,7 @@ class Volvo240 extends Car {
         enginePower = 100;
         modelName = "Volvo240";
         stopEngine();
+        
     }
     
     @Override
