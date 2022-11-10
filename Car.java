@@ -1,9 +1,6 @@
 import java.awt.*;
 
-
-
 abstract class Car {
-
 
     public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
@@ -11,7 +8,6 @@ abstract class Car {
     public Color color; // Color of the car
     public String modelName; // The car model name
     
-
     public int getNrDoors(){
         return nrDoors;
     }
@@ -38,7 +34,6 @@ abstract class Car {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-    
     
     public abstract double speedFactor();
 
