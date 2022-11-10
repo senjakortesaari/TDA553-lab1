@@ -2,6 +2,7 @@ Task 1: Basic Inheritance
 Familiarize yourself with the code. It contains two Java files, Volvo240.java and Saab95.java. At the moment, the classes seem to have quite a lot in common, as both represent cars.
 
 Create an inheritance hierarchy that includes Volvo240 and Saab95, which eliminates all code duplication, and which follows the Open-Closed Principle. Make these changes without changing the functionality of the classes.
+
 Should you use implementation inheritance (subclassing) or specification inheritance (interfaces)? Why? Could both be used? What advantages and disadvantages do you see?
 In the original files, all methods and variables are public, which exposes everything to other objects. Change the visibility of the methods and variables that other objects do not need to see or know.
 What visibility should you use for the different methods and variables that the classes contain? Which interface should you expose?
