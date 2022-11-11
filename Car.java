@@ -96,4 +96,7 @@ abstract class Car implements Movable {
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
+    
 }
+
