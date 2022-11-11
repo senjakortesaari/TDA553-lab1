@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Test;
 
 
 
-class MyFirstJUnitJupiterTests extends Volvo240{
+class FirstTest{
 
-    @Test
-    public void testSpeedFactor() {
-        assertEquals(1.25, speedFactor());
+    Volvo240 volvo1 = new Volvo240(4, 100, color.red, "Ferolvo") {
+        volvo.speedFactor(); {
+            assertEquals(1.25, speedFactor());
+        }
+        
     }
 
 }

@@ -1,5 +1,7 @@
 import java.awt.*;
 
+import org.junit.Test;
+
 //
 
 class Volvo240 extends Car {
@@ -11,7 +13,7 @@ class Volvo240 extends Car {
         stopEngine();
         
     }
-    
+    @Test
     @Override
     public double speedFactor(){
         return enginePower * 0.01 * trimFactor;
