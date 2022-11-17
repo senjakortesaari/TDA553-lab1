@@ -59,7 +59,6 @@ class FirstTest{
         saab.setTurboOff();
         assertFalse(saab.isTurboOn());
     }
-    
     @Test
     public void saab_test_speedFactor_with_turbo_on_should_return_1_point_625() {
         Saab95 saab = new Saab95();
