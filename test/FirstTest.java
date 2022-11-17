@@ -73,6 +73,37 @@ class FirstTest{
         assertEquals(1.25, saab.speedFactor());
     }
 
+    @Test
+    public void saab_test_incrementSpeed_with_turbo_on_should_return_16_point_25(){
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        saab.incrementSpeed(10);
+        assertEquals(16.25, saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void saab_test_incrementSpeed_with_turbo_off_should_return_12_point_5(){
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        saab.incrementSpeed(10);
+        assertEquals(12.5, saab.getCurrentSpeed());
+    }
+    @Test
+    public void test_decrementSpeed_with_turbo_on_should_return_negative_16_point_25(){
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        saab.decrementSpeed(10);
+        assertEquals(-16.25, saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void test_decrementSpeed_with_turbo_off_should_return_negative_12_point_25(){
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        saab.decrementSpeed(10);
+        assertEquals(-12.5, saab.getCurrentSpeed());
+    }
+
 
     // Below are tests for mutual methods of all subclasses derived from Car
     @Test
@@ -150,5 +181,6 @@ class FirstTest{
         volvo.stopEngine();
         assertEquals(0, volvo.getCurrentSpeed());
     }
+
 }
 
