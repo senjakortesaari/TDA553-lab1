@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.rules.Verifier;
 
 import src.Volvo240;
+import src.Saab95;
 
 import java.awt.*;
 
@@ -12,36 +13,69 @@ import java.awt.*;
 class FirstTest{
 
     @Test
-    public void test(){
+    public void test(){ // To test if Jupiter works
         assertEquals(2, 1+1);
     }
 
+    // Below are tests for methods specific to Volvo240
     @Test
-    public void testGetCurrentSpeed_should_return_0(){
+    public void volvo_testGetCurrentSpeed_should_return_0(){
         Volvo240 volvo1 = new Volvo240();
         assertEquals(0, volvo1.getCurrentSpeed());
     }
 
     @Test
-    public void testspeedFactor_should_return_1_point_25(){
+    public void volvo_testspeedFactor_should_return_1_point_25(){
         Volvo240 volvo1 = new Volvo240();
         assertEquals(1.25, volvo1.speedFactor());
     }
     
     @Test
-    public void testIncrementSpeed_should_return_12_point_5(){
+    public void volvo_testIncrementSpeed_should_return_12_point_5(){
         Volvo240 volvo1 = new Volvo240();
         volvo1.incrementSpeed(10);
         assertEquals(12.5, volvo1.getCurrentSpeed());
     }
 
     @Test
-    public void testDecrementSpeed_should_return_0(){
+    public void volvo_testDecrementSpeed_should_return_0(){
         Volvo240 volvo1 = new Volvo240();
         volvo1.decrementSpeed(10);
         assertEquals(0, volvo1.getCurrentSpeed());
     }
 
+    // Below are tests for methods specific to Saab95
+
+    @Test
+    public void saab_test_setTurboOn_should_return_true() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        assertTrue(saab.isTurboOn());
+    }
+
+    @Test
+    public void saab_test_setTurboOff_should_return_false() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        assertFalse(saab.isTurboOn());
+    }
+    
+    @Test
+    public void saab_test_speedFactor_with_turbo_on_should_return_1_point_625() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        assertEquals(1.625, saab.speedFactor());
+    }
+
+    @Test
+    public void saab_test_speedFactor_with_turbo_off_should_return_1_point_25() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        assertEquals(1.25, saab.speedFactor());
+    }
+
+
+    // Below are tests for mutual methods of all subclasses derived from Car
     @Test
     public void test_turnLeft_for_x_axis_should_return_minus_12_point_5() {
         Volvo240 volvo = new Volvo240();

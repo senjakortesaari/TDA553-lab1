@@ -1,9 +1,11 @@
 package src;
 import java.awt.*;
 
-class Saab95 extends Car {
+public class Saab95 extends Car {
     public boolean turboOn;
     
+    
+
     public Saab95(){
         super(2, 125, Color.red, "Saab95");
         stopEngine();
@@ -40,5 +42,9 @@ class Saab95 extends Car {
     // TODO fix this method according to lab pm
     public void brake(double amount){
         decrementSpeed(amount);
+    }
+
+    public boolean isTurboOn() {
+        return turboOn;
     }
 }
