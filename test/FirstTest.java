@@ -90,19 +90,19 @@ class FirstTest{
         assertEquals(12.5, saab.getCurrentSpeed());
     }
     @Test
-    public void test_decrementSpeed_with_turbo_on_should_return_negative_16_point_25(){
+    public void test_decrementSpeed_with_turbo_on_should_return_0(){
         Saab95 saab = new Saab95();
         saab.setTurboOn();
         saab.decrementSpeed(10);
-        assertEquals(-16.25, saab.getCurrentSpeed());
+        assertEquals(0, saab.getCurrentSpeed());
     }
 
     @Test
-    public void test_decrementSpeed_with_turbo_off_should_return_negative_12_point_25(){
+    public void test_decrementSpeed_with_turbo_off_should_return_0(){
         Saab95 saab = new Saab95();
         saab.setTurboOff();
         saab.decrementSpeed(10);
-        assertEquals(-12.5, saab.getCurrentSpeed());
+        assertEquals(0, saab.getCurrentSpeed());
     }
 
 
@@ -184,29 +184,25 @@ class FirstTest{
     }
 
     @Test
-    public void test_gas_should_return_______________() {
+    public void test_gas_should_return_0_point_3125() {
         Volvo240 volvo = new Volvo240();
         try {
             volvo.gas(0.25);
         } catch (InvalidRangeForGasException e) {
             System.out.println("Åh nej ... an error has occured: " + e);
         }
-
-        }
+        assertEquals(0.3125, volvo.getCurrentSpeed());
+    }
 
     @Test
-    public void test_brake_should_return_______________() {
+    public void test_brake_should_return_0() {
         Volvo240 volvo = new Volvo240();
         try {
             volvo.brake(0.25);
         } catch (InvalidRangeForBrakeException e) {
             System.out.println("Åh nej ... an error has occured: " + e);
-
-        }
-        
-    
-    
+        }    
+        assertEquals(0, volvo.getCurrentSpeed());
     }
 
 }
-
