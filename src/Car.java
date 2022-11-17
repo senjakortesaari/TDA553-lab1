@@ -39,6 +39,7 @@ abstract class Car implements Movable {
         if (directionIndex == -1){
             directionIndex = 3;
         }
+        move();
     }
 
     public void turnRight(){
@@ -46,19 +47,20 @@ abstract class Car implements Movable {
         if (directionIndex == 4){
             directionIndex = 0;
         }
+        move();
     }
 
-    protected double getX(){
+    public double getX(){
         return x;
     }
 
-    protected double getY(){
+    public double getY(){
         return y;
     }
-    protected int getNrDoors(){
+    public int getNrDoors(){
         return nrDoors;
     }
-    protected double getEnginePower(){
+    public double getEnginePower(){
         return enginePower;
     }
 
@@ -66,19 +68,19 @@ abstract class Car implements Movable {
         return currentSpeed;
     }
 
-    protected Color getColor(){
+    public Color getColor(){
         return color;
     }
 
-    protected void setColor(Color clr){
+    public void setColor(Color clr){
 	    color = clr;
     }
 
-    protected void startEngine(){
+    public void startEngine(){
 	    currentSpeed = 0.1;
     }
 
-    protected void stopEngine(){
+    public void stopEngine(){
 	    currentSpeed = 0;
     }
     
