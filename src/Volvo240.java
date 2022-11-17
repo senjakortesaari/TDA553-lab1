@@ -1,10 +1,6 @@
 package src;
 import java.awt.*;
 
-import org.junit.Test;
-
-//
-
 public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
@@ -27,13 +23,4 @@ public class Volvo240 extends Car {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
 }

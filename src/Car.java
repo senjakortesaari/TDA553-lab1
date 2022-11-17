@@ -93,15 +93,26 @@ abstract class Car implements Movable {
     protected abstract void decrementSpeed(double amount);
 
     // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public void gas(double amount) throws InvalidRangeForGasException{
+        if(amount < 0 || amount > 1) {
+            throw new InvalidRangeForGasException();
+        } else {
+            incrementSpeed(amount);
+        }
     }
 
     // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public void brake(double amount) throws InvalidRangeForBrakeException{
+        if(amount < 0 || amount > 1) {
+            throw new InvalidRangeForBrakeException();
+        } 
+            decrementSpeed(amount);
+        
+        
     }
 
     
 }
+
+
 

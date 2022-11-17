@@ -2,9 +2,10 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.rules.Verifier;
 
 import src.Volvo240;
+import src.InvalidRangeForBrakeException;
+import src.InvalidRangeForGasException;
 import src.Saab95;
 
 import java.awt.*;
@@ -107,7 +108,7 @@ class FirstTest{
 
     // Below are tests for mutual methods of all subclasses derived from Car
     @Test
-    public void test_turnLeft_for_x_axis_should_return_minus_12_point_5() {
+    public void test_turnLeft_for_x_axis_should_return_negative_12_point_5() {
         Volvo240 volvo = new Volvo240();
         volvo.incrementSpeed(10);
         volvo.move();
@@ -180,6 +181,31 @@ class FirstTest{
         Volvo240 volvo = new Volvo240();
         volvo.stopEngine();
         assertEquals(0, volvo.getCurrentSpeed());
+    }
+
+    @Test
+    public void test_gas_should_return_______________() {
+        Volvo240 volvo = new Volvo240();
+        try {
+            volvo.gas(0.25);
+        } catch (InvalidRangeForGasException e) {
+            System.out.println("Åh nej ... an error has occured: " + e);
+        }
+
+        }
+
+    @Test
+    public void test_brake_should_return_______________() {
+        Volvo240 volvo = new Volvo240();
+        try {
+            volvo.brake(0.25);
+        } catch (InvalidRangeForBrakeException e) {
+            System.out.println("Åh nej ... an error has occured: " + e);
+
+        }
+        
+    
+    
     }
 
 }
