@@ -98,7 +98,7 @@ class FirstTest{
     }
 
     @Test
-    public void setColor(Color clr){
+    public void setColor(){
 	    Volvo240 volvo = new Volvo240();
         volvo.setColor(Color.red);
         

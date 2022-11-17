@@ -69,7 +69,6 @@ abstract class Car implements Movable {
     }
 
     public Color getColor(){
-        System.out.println("apapapap");
         return color;
     
     }
@@ -77,6 +76,7 @@ abstract class Car implements Movable {
 
     public void setColor(Color clr){
 	    color = clr;
+        System.out.println(color);
     }
 
     public void startEngine(){
