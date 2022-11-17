@@ -51,7 +51,58 @@ class FirstTest{
         
         assertEquals(-12.5, volvo.getX());
     }
+    @Test
+    public void test_turnLeft_for_y_axis_should_return_12_point_5() {
+        Volvo240 volvo = new Volvo240();
+        volvo.incrementSpeed(10);
+        volvo.move();
+        volvo.turnLeft();
+        
+        assertEquals(12.5, volvo.getY());
+    }
+    @Test
+    public void test_turnRight_for_x_axis_should_return_12_point_5() {
+        Volvo240 volvo = new Volvo240();
+        volvo.incrementSpeed(10);
+        volvo.move();
+        volvo.turnRight();
+        
+        assertEquals(12.5, volvo.getX());
+    }
 
+    @Test
+    public void test_turnRight_for_y_axis_should_return_12_point_5() {
+        Volvo240 volvo = new Volvo240();
+        volvo.incrementSpeed(10);
+        volvo.move();
+        volvo.turnRight();
+        
+        assertEquals(12.5, volvo.getY());
+    }
+    @Test
+    public void test_getNrDoors_should_return_4(){
+        Volvo240 volvo = new Volvo240();
+        assertEquals(4, volvo.getNrDoors());
+    }
 
+    @Test
+    public void test_getEnginePower_should_return_100_for_volvo(){
+        Volvo240 volvo = new Volvo240();
+        assertEquals(100, volvo.getEnginePower());
+    }
+
+    @Test
+    public void test_getColor_should_return_black_for_volvo(){
+        Volvo240 volvo = new Volvo240();
+        assertEquals(Color.black, volvo.getColor());
+    }
+
+    @Test
+    public void setColor(Color clr){
+	    Volvo240 volvo = new Volvo240();
+        volvo.setColor(Color.red);
+        
+        assertEquals(Color.red, volvo.getColor());
+    }
 }
 
