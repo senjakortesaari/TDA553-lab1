@@ -101,8 +101,21 @@ class FirstTest{
     public void setColor(){
 	    Volvo240 volvo = new Volvo240();
         volvo.setColor(Color.red);
-        
         assertEquals(Color.red, volvo.getColor());
+    }
+
+    @Test
+    public void test_startEngine_should_return_0_point_1(){
+        Volvo240 volvo = new Volvo240();
+        volvo.startEngine();
+        assertEquals(0.1, volvo.getCurrentSpeed());
+    }
+
+    @Test
+    public void test_stopEngine_should_return_0(){
+        Volvo240 volvo = new Volvo240();
+        volvo.stopEngine();
+        assertEquals(0, volvo.getCurrentSpeed());
     }
 }
 
