@@ -5,3 +5,5 @@ What visibility should you use for the different methods and variables that the 
 Check that all files compile, then proceed to the next task.
 
 Vi valde att göra protected instansattributer, för att subklasserna ska kunna använda sig av attributen men inte några andra klasser. 
+
+
