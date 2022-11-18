@@ -7,7 +7,7 @@ Let’s say we have a class that depicts the laws of physics. Ultimately, the wo
 As we are the creators of our code, we know this, and won’t meddle with gravity. On the other hand, if another programmer were to extend our code, that person could misapprehend the meaning of gravity (leading to destructive behavior in class World) - unless we’ve made gravity closed for modification. If we make class LawsOfPhysics closed for modification, classes derived from LawsOfPhysics are still extensible. This is an example of the Open Closed Principle.
 
 Implementing the OCP in this project could be done in multiple ways. Since we have a class Car containing multiple methods and attributes which are also used by car models, we went for implementation inheritance (subclassing). Because if we used the specification inheritance the common methods wouldn’t be implemented (we would have to implement every single one of them in the same way in all car models, leading to redundant code). By using implementation inheritance, we could define common methods in the superclass, which now can be used by subclasses (car models) and create abstract methods if we need functionality specific to a car model. 
-
+ 
 
 --- Explain how you implemented each of the sanity checks in Task 4 ---
 
