@@ -70,12 +70,10 @@ abstract class Car implements Movable {
 
     public Color getColor(){
         return color;
-    
     } 
 
     public void setColor(Color clr){
 	    color = clr;
-        System.out.println(color);
     }
 
     public void startEngine(){
@@ -111,8 +109,6 @@ abstract class Car implements Movable {
 
         }
     }
-
-    
 }
 
 

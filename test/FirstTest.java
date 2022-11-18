@@ -46,7 +46,6 @@ class FirstTest{
     }
 
     // Below are tests for methods specific to Saab95
-
     @Test
     public void saab_test_setTurboOn_should_return_true() {
         Saab95 saab = new Saab95();
@@ -104,7 +103,6 @@ class FirstTest{
         saab.decrementSpeed(10);
         assertEquals(0, saab.getCurrentSpeed());
     }
-
 
     // Below are tests for mutual methods of all subclasses derived from Car
     @Test
@@ -204,5 +202,4 @@ class FirstTest{
         }    
         assertEquals(0, volvo.getCurrentSpeed());
     }
-
 }
