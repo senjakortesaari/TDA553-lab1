@@ -1,12 +1,21 @@
-Task 1
-Should you use implementation inheritance (subclassing) or specification inheritance (interfaces)?
-Why? Could both be used? What advantages and disadvantages do you see?
-In the original files, all methods and variables are public, which exposes everything to other objects.
-Change the visibility of the methods and variables that other objects do not need to see or know.
-What visibility should you use for the different methods and variables that the classes contain?
-Which interface should you expose?
-Check that all files compile, then proceed to the next task.
+Group members: Ida Åberg, Senja Kortesaari and Mikael Motin
 
-Vi valde att göra protected instansattributer, för att subklasserna ska kunna använda sig av attributen men inte några andra klasser. 
+--- Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle ---
+
+Let’s say we have a class that depicts the laws of physics. Ultimately, the world we live in is derived and shaped, in some way, after this class. If we now were to change, let’s say gravity, the whole world would collapse on itself and every being influenced by gravity would be affected in, most probably, a negative way - think flying cows (this is because gravity affects all other implementations in the class World.) 
+
+As we are the creators of our code, we know this, and won’t meddle with gravity. On the other hand, if another programmer were to extend our code, that person could misapprehend the meaning of gravity (leading to destructive behavior in class World) - unless we’ve made gravity closed for modification. If we make class LawsOfPhysics closed for modification, classes derived from LawsOfPhysics are still extensible. This is an example of the Open Closed Principle.
+
+Implementing the OCP in this project could be done in multiple ways. Since we have a class Car containing multiple methods and attributes which are also used by car models, we went for implementation inheritance (subclassing). Because if we used the specification inheritance the common methods wouldn’t be implemented (we would have to implement every single one of them in the same way in all car models, leading to redundant code). By using implementation inheritance, we could define common methods in the superclass, which now can be used by subclasses (car models) and create abstract methods if we need functionality specific to a car model. 
 
 
+--- Explain how you implemented each of the sanity checks in Task 4 ---
+
+ -- gas() and brake() only accept values in the interval [0,1] --
+We created custom exceptions, one for handling the braking range, another for handling the gas range. We chose to create two different exceptions in case we would like to alter either interval in the future - maybe the car's braking system gets an upgrade and the car can now brake in the interval of 0 to 2, but the car’s acceleration remains in the same interval. i
+
+-- currentSpeed always lies in the interval [0 , enginePower] --
+We used min and max built-in functions from java.lang.Math, which defines the max speed as the car model’s (engine power) and the minimum speed of (0).
+
+-- calls to gas() cannot result in the speed decreasing, and calls to brake() cannot result in the speed increasing --
+Since currentSpeed has a max value of the model's enginepower and the minimum value of zero, and gas calls incrementSpeed and brake calls decrementSpeed (both with an interval ranging from zero to one), a car's speed can't decrease when calling gas or increase when calling brake. 
