@@ -18,4 +18,4 @@ We created custom exceptions, one for handling the braking range, another for ha
 We used min and max built-in functions from java.lang.Math, which defines the max speed as the car model’s (engine power) and the minimum speed of (0).
 
 -- calls to gas() cannot result in the speed decreasing, and calls to brake() cannot result in the speed increasing --
-Since currentSpeed has a max value of the model's enginepower and the minimum value of zero, and gas calls incrementSpeed and brake calls decrementSpeed (both with an interval ranging from zero to one), a car's speed can't decrease when calling gas or increase when calling brake. 
+Since currentSpeed has a max value of the model's enginepower and a minimum value of zero, and gas calls incrementSpeed and brake calls decrementSpeed (both with an interval ranging from zero to one), a car's speed can't decrease when calling gas or increase when calling brake. 
