@@ -12,6 +12,12 @@ abstract class Car implements Movable {
     protected double y;
 
     double[][] directionList = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    
+    protected static final int minGasAmount = 0;
+    protected static final int maxGasAmount = 1;
+
+    protected static final int minBrakeAmount = 0;
+    protected static final int maxBrakeAmount = 1;
 
     // Constructors used to initalize different cars
     public Car(int nrDoors, double enginePower,Color color, String modelName){
@@ -90,23 +96,19 @@ abstract class Car implements Movable {
 
     protected abstract void decrementSpeed(double amount);
 
-    // TODO fix this method according to lab pm
     public void gas(double amount) throws InvalidRangeForGasException{
-        if(amount < 0 || amount > 1) {
+        if(amount < minGasAmount || amount > maxGasAmount) {
             throw new InvalidRangeForGasException();
         } else { 
-            incrementSpeed(amount);
-            
+            incrementSpeed(amount);    
         }
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) throws InvalidRangeForBrakeException{
-        if(amount < 0 || amount > 1) {
+        if(amount < minBrakeAmount || amount > maxBrakeAmount) {
             throw new InvalidRangeForBrakeException();
         } else {
             decrementSpeed(amount);
-
         }
     }
 }
