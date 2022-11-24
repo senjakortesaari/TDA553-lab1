@@ -18,6 +18,11 @@ abstract class Vehicle implements Movable {
         this.modelName = modelName;
     }
 
+    //speed x index 0
+    //speed y index 1
+    // går man till höger -> nästa index i listan
+    // går man till vänster -> föregående index i listan
+    
     double[][] directionList = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
     public static final int minGasAmount = 0;

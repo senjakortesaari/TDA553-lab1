@@ -3,10 +3,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import src.Volvo240;
-import src.InvalidRangeForBrakeException;
-import src.InvalidRangeForGasException;
-import src.Saab95;
+import src2.Volvo240;
+import src2.InvalidRangeForBrakeException;
+import src2.InvalidRangeForGasException;
+import src2.Saab95;
+import src2.Scania;
 
 import java.awt.*;
 
@@ -202,4 +203,7 @@ class FirstTest{
         }    
         assertEquals(0, volvo.getCurrentSpeed());
     }
+
+    // Below are tests for ...(vehicle)
+    
 }
