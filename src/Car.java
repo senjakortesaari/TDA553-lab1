@@ -13,11 +13,11 @@ abstract class Car implements Movable {
 
     double[][] directionList = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
-    protected static final int minGasAmount = 0;
-    protected static final int maxGasAmount = 1;
+    public static final int minGasAmount = 0;
+    public static final int maxGasAmount = 1;
 
-    protected static final int minBrakeAmount = 0;
-    protected static final int maxBrakeAmount = 1;
+    public static final int minBrakeAmount = 0;
+    public static final int maxBrakeAmount = 1;
 
     // Constructors used to initalize different cars
     public Car(int nrDoors, double enginePower,Color color, String modelName){
@@ -91,10 +91,13 @@ abstract class Car implements Movable {
     }
     
     protected abstract double speedFactor();
-
-    protected abstract void incrementSpeed(double amount);
-
-    protected abstract void decrementSpeed(double amount);
+    
+    public void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+    }
+    public void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
 
     public void gas(double amount) throws InvalidRangeForGasException{
         if(amount < minGasAmount || amount > maxGasAmount) {
