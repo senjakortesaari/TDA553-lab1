@@ -5,13 +5,13 @@ import src2.exceptions.*;
 
 public abstract class Vehicle implements Movable {
     
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
-    protected double x;
-    protected double y;
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double x;
+    private double y;
 
     public Vehicle(int nrDoors, double enginePower,Color color, String modelName){
         this.nrDoors = nrDoors;
@@ -88,6 +88,10 @@ public abstract class Vehicle implements Movable {
 
     public void stopEngine(){
 	    currentSpeed = 0;
+    }
+
+    public void setCurrentSpeed(double amount) { // Nu kan man setta till infinite speed... behöver exception men alla ser annorlunda ut för olika typer av bilar osv osv fuck
+        currentSpeed = amount;
     }
     
     protected abstract double speedFactor();

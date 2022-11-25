@@ -5,7 +5,7 @@ import src2.exceptions.FlatbedException;
 
 abstract class Truck extends Vehicle {
     // Instansattribut:
-    protected boolean state_flatbed; 
+    private boolean state_flatbed; 
     
 
     // Constructors used to initialize different trucks
@@ -23,18 +23,23 @@ abstract class Truck extends Vehicle {
             }
         
         } else {
-            currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+            Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+            setCurrentSpeed(currentSpeed);
         }
     }
 
     public void WhileMoving() {
-        if(currentSpeed > 0){
-            flatbed_down();
+        if(getCurrentSpeed() > 0){
+            flatbedDown();
         }
     }
     
-    public boolean get_state_of_flatbed() {
+    public boolean getStateOfFlatbed() {
         return state_flatbed;
+    }
+
+    public void setStateOfFlatbed(boolean bool){
+        state_flatbed = bool;
     }
 
     public void flatbed_up() {
@@ -43,7 +48,7 @@ abstract class Truck extends Vehicle {
     }
 
     public void cannotUseFlatbedWhilstDriving() {
-        if(currentSpeed > 0) { // create method out of this, called cannotUseFlatbedWhilstDriving
+        if(getCurrentSpeed() > 0) { // create method out of this, called cannotUseFlatbedWhilstDriving
             try {
                 flatbedException(); 
             } catch (FlatbedException e) {
@@ -52,7 +57,7 @@ abstract class Truck extends Vehicle {
         }
     }
     
-    public void flatbed_down() {
+    public void flatbedDown() {
         state_flatbed = false;
     }
 

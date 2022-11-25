@@ -20,9 +20,9 @@ public class Scania extends Truck{
     public void flatbed_up() {
         cannotUseFlatbedWhilstDriving(); // Change to a more descriptive name
         if(platform_angle > 0){
-            state_flatbed = true;
+            setStateOfFlatbed(true);
         } else {
-            state_flatbed = false;
+            setStateOfFlatbed(false);
         }
     }
 

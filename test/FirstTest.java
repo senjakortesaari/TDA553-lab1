@@ -221,14 +221,14 @@ class FirstTest{
     public void test_ramp_up_should_return_true() {
         Bärgarn bärgarn = new Bärgarn();
         bärgarn.flatbed_up();
-        assertEquals(true, bärgarn.get_state_of_flatbed());
+        assertEquals(true, bärgarn.getStateOfFlatbed());
     }
 
     @Test
     public void test_ramp_down_should_return_false() {
         Bärgarn bärgarn = new Bärgarn();
-        bärgarn.flatbed_down();
-        assertEquals(false, bärgarn.get_state_of_flatbed());
+        bärgarn.flatbedDown();
+        assertEquals(false, bärgarn.getStateOfFlatbed());
     }
 
     @Test
@@ -253,6 +253,11 @@ class FirstTest{
         scania.incrementSpeed(125);
         scania.move();
         scania.flatbed_up();
-        assertEquals(false, scania.get_state_of_flatbed());
+        assertEquals(false, scania.getStateOfFlatbed());
+    }
+
+    @Test
+    public void test_car_load(){
+        
     }
 }
