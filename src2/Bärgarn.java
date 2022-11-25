@@ -6,15 +6,15 @@ import java.awt.Color;
 public class Bärgarn extends Truck {
 	
 
-	public Bärgarn(int nrDoors, double enginePower, Color color, String modelName) {
-		super(nrDoors, enginePower, color,"Bärgarn");
+	public Bärgarn() {
+		super(2, 150, Color.pink,"Bärgarn");
 		
-		//TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected double speedFactor() {
-		// TODO Auto-generated method stub
+		//Decreases with heavier load
 		return 0;
+		
 	}
 }

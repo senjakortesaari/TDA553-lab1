@@ -6,11 +6,17 @@ abstract class Truck extends Vehicle{
     protected boolean state_flatbed; 
     
 
-    // Constructors used to initalize different trucks
+    // Constructors used to initialize different trucks
     public Truck(int nrDoors, double enginePower, Color color, String modelName){
         super(nrDoors, enginePower, color, modelName);
     }
     
+    @Override
+    public void move() {
+        // TODO Auto-generated method stub
+        super.move();
+    }
+
     public boolean get_state_of_flatbed() {
         return state_flatbed;
     }
@@ -21,5 +27,9 @@ abstract class Truck extends Vehicle{
     
     public void flatbed_down() {
         state_flatbed = false;
+    }
+
+    public void stationary_condition() {
+        if(state_flatbed 
     }
 }

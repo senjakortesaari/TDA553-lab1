@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import src2.Volvo240;
+import src2.Bärgarn;
 import src2.InvalidRangeForBrakeException;
 import src2.InvalidRangeForGasException;
 import src2.Saab95;
@@ -204,6 +205,34 @@ class FirstTest{
         assertEquals(0, volvo.getCurrentSpeed());
     }
 
-    // Below are tests for ...(vehicle)
+    // Below are tests for ...(scania) --------------------------------------------------------------------------------------------------
+
+    @Test
+    public void test_platform_angle_in_range_increase_should_return_34() {
+        Scania scania = new Scania();
+        scania.increase_platform_angle(34);
+        assertEquals(34, scania.get_platform_angle());
+        }
+
+    @Test
+    public void test_platform_angle_in_range_decrease_should_return_0() {
+        Scania scania = new Scania();
+        scania.increase_platform_angle(10);
+        scania.decrease_platform_angle(5);
+        assertEquals(5, scania.get_platform_angle());
+    }
     
+    @Test
+    public void test_ramp_up_should_return_true() {
+        Bärgarn bärgarn = new Bärgarn();
+        bärgarn.flatbed_up();
+        assertEquals(true, bärgarn.get_state_of_flatbed());
+    }
+
+    @Test
+    public void test_ramp_down_should_return_false() {
+        Bärgarn bärgarn = new Bärgarn();
+        bärgarn.flatbed_down();
+        assertEquals(false, bärgarn.get_state_of_flatbed());
+    }
 }
