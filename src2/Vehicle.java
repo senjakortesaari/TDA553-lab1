@@ -1,7 +1,9 @@
 package src2;
 import java.awt.*;
 
-abstract class Vehicle implements Movable {
+import src2.exceptions.*;
+
+public abstract class Vehicle implements Movable {
     
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car

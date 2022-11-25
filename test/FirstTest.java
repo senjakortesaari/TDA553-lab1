@@ -3,13 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import src2.Volvo240;
-import src2.Bärgarn;
-import src2.InvalidRangeForBrakeException;
-import src2.InvalidRangeForGasException;
-import src2.Saab95;
-import src2.Scania;
-
+import src2.exceptions.*;
+import src2.*;
 import java.awt.*;
 
 
@@ -234,5 +229,30 @@ class FirstTest{
         Bärgarn bärgarn = new Bärgarn();
         bärgarn.flatbed_down();
         assertEquals(false, bärgarn.get_state_of_flatbed());
+    }
+
+    @Test
+    public void test_increment_speed_while_flatbed_up_scania() {
+        Scania scania = new Scania();
+        scania.flatbed_up();
+        scania.incrementSpeed(10);
+        assertEquals(0, scania.getCurrentSpeed());
+    
+    }
+    @Test
+    public void test_increment_speed_while_flatbed_up_bärgarn(){
+        Bärgarn bärgarn = new Bärgarn();
+        bärgarn.flatbed_up();
+        bärgarn.incrementSpeed(10);
+        assertEquals(0, bärgarn.getCurrentSpeed());
+    }
+
+    @Test
+    public void test_flatbed_down_while_moving_scania(){
+        Scania scania = new Scania();
+        scania.incrementSpeed(125);
+        scania.move();
+        scania.flatbed_up();
+        assertEquals(false, scania.get_state_of_flatbed());
     }
 }

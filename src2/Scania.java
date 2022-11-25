@@ -13,12 +13,12 @@ public class Scania extends Truck{
     protected double speedFactor() {
         //Decreases with heavier load
         return 0;
-        
     }
     
     // Determines whether flatbed is up 
     @Override
     public void flatbed_up() {
+        cannotUseFlatbedWhilstDriving(); // Change to a more descriptive name
         if(platform_angle > 0){
             state_flatbed = true;
         } else {
@@ -37,6 +37,8 @@ public class Scania extends Truck{
         if(platform_angle < 0) {
             throw new IllegalArgumentException("Valid range: [0, 70]");
         }
+
+
         platform_angle = Math.max(platform_angle - degrees, 0);
     }
     
