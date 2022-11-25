@@ -3,28 +3,39 @@ package src2;
 import java.awt.Color;
 
 public class Scania extends Truck{
-    Platform platform = new Platform();
-    
+    int platform_angle;
     
     public Scania(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, "Scania");
-        this.platform = new Platform();
+        
         //TODO Auto-generated constructor stub
         
     }
 
     @Override
     protected double speedFactor() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
-    public void platformUp() {
-        platform.up();
+    
+    @Override
+    public void flatbed_up() {
+        if(platform_angle > 0){
+            state_flatbed = true;
+        } else {
+            state_flatbed = false;
+        }
+    }
+
+    public void increase_platform_angle(int degrees) {
+        platform_angle += degrees;
+    }
+
+    public void decrease_platform_angle(int degrees) {
+        platform_angle -= degrees;
     }
     
-    public void platformDown(){
-        platform.down();
+    public int get_platform_angle() {
+        return platform_angle;
     }
-    
 }

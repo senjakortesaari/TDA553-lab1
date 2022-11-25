@@ -3,8 +3,8 @@ package src2;
 public class Ramp extends Flatbed{
     String state;
 
-    @Override
-    public void up() {
+    
+    public void up(int degrees) {
         state = "Up";
         
     }
