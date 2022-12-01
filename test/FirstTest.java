@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import src2.exceptions.*;
 import src2.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 class FirstTest{
@@ -219,14 +220,14 @@ class FirstTest{
     
     @Test
     public void test_ramp_up_should_return_true() {
-        Bärgarn bärgarn = new Bärgarn();
+        Bärgarn bärgarn = new Bärgarn(10);
         bärgarn.flatbed_up();
         assertEquals(true, bärgarn.getStateOfFlatbed());
     }
 
     @Test
     public void test_ramp_down_should_return_false() {
-        Bärgarn bärgarn = new Bärgarn();
+        Bärgarn bärgarn = new Bärgarn(10);
         bärgarn.flatbedDown();
         assertEquals(false, bärgarn.getStateOfFlatbed());
     }
@@ -241,7 +242,7 @@ class FirstTest{
     }
     @Test
     public void test_increment_speed_while_flatbed_up_bärgarn(){
-        Bärgarn bärgarn = new Bärgarn();
+        Bärgarn bärgarn = new Bärgarn(10);
         bärgarn.flatbed_up();
         bärgarn.incrementSpeed(10);
         assertEquals(0, bärgarn.getCurrentSpeed());
@@ -257,7 +258,111 @@ class FirstTest{
     }
 
     @Test
-    public void test_car_load(){
+    public void test_withVolvo_load_should_return_(){
+        Volvo240 volvo = new Volvo240();
+        Bärgarn bärgarn = new Bärgarn(10);
+        HasPosition position = new HasPosition();
         
+        volvo.setX(48);
+        bärgarn.setX(50);
+
+        volvo.setY(55);
+        bärgarn.setY(50);
+        
+        Boolean volvoBärgarn = position.getDistanceBetweenObjects(volvo, bärgarn);
+
+        assertTrue(volvoBärgarn);
+    }
+
+    @Test
+    public void test_withSaab_load_should_return_(){
+        Bärgarn bärgarn = new Bärgarn(10);
+        Saab95 saab = new Saab95();
+        
+        saab.setX(10);
+        bärgarn.setX(50);
+
+        saab.setY(9999);
+        bärgarn.setY(50);
+
+        Boolean saabBärgarn = bärgarn.checkIfCarIsClose(saab, bärgarn);
+
+        assertFalse(saabBärgarn);
+    }
+
+    @Test
+    public void testCarLoadCarIsCloseByAddingOneCarToTheTransporterTruckShouldReturnOne() {
+        Bärgarn bärgarn = new Bärgarn(10);
+        Bärgarn borgir = new Bärgarn(10);
+        Saab95 saab = new Saab95();
+        Saab95 saabis = new Saab95();
+        ArrayList<Car> loadedCarsBär = bärgarn.getLoadedCars();
+        ArrayList<Car> loadedCarsBorg = borgir.getLoadedCars();
+
+        saab.setX(48);
+        saabis.setX(48);
+        bärgarn.setX(50);
+        borgir.setX(50);
+
+        saab.setY(48);
+        saabis.setY(48);
+        bärgarn.setY(50);
+        borgir.setY(50);
+
+        bärgarn.load(saab);
+        bärgarn.load(saabis);
+        
+        borgir.load(saab);
+
+        assertTrue(loadedCarsBär.size() > loadedCarsBorg.size());
+    }
+    
+    @Test
+    public void testCarUnload() {
+        Bärgarn bärgarn = new Bärgarn(10);
+        Saab95 saab = new Saab95();
+        ArrayList<Car> loadedCars = bärgarn.getLoadedCars();
+
+        saab.setX(48);
+        bärgarn.setX(50);
+
+        saab.setY(48);
+        bärgarn.setY(50);
+
+        bärgarn.load(saab);
+        bärgarn.unload(saab);
+
+        assertEquals(0, loadedCars.size());
+    }
+
+    @Test
+    public void testCarRepairShopLoadCars() {
+        Saab95 saab = new Saab95();
+        CarRepairShop carRepairShop = new CarRepairShop(10);
+        
+        saab.setX(48);
+        carRepairShop.setX(50);
+
+        saab.setY(48);
+        carRepairShop.setY(50);
+
+        //carRepairShop.loadCar(saab);
+    }
+
+    @Test
+    public void testCarRepairShopUnloadCars() {
+        Saab95 saab = new Saab95();
+        CarRepairShop carRepairShop = new CarRepairShop(10);
+
+        saab.setX(48);
+        carRepairShop.setX(50);
+
+        saab.setY(48);
+        carRepairShop.setY(50);
+
+        carRepairShop.loadCar(saab);
+        
+
+        assertEquals(1, carRepairShop.getLoadedCars().size());
     }
 }

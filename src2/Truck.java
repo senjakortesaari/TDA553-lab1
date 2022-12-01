@@ -6,6 +6,7 @@ import src2.exceptions.FlatbedException;
 abstract class Truck extends Vehicle {
     // Instansattribut:
     private boolean state_flatbed; 
+    HasPosition position = new HasPosition();
     
 
     // Constructors used to initialize different trucks
@@ -64,4 +65,8 @@ abstract class Truck extends Vehicle {
     protected void flatbedException() throws FlatbedException{
         throw new FlatbedException();
     }
+
+    public boolean checkIfCarIsClose(Car a, Truck b){
+        return position.getDistanceBetweenObjects(a, b);
+	}
 }

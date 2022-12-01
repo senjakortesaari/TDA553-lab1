@@ -12,6 +12,8 @@ public abstract class Vehicle implements Movable {
     private String modelName; // The car model name
     private double x;
     private double y;
+    private HasPosition position = new HasPosition();
+    
 
     public Vehicle(int nrDoors, double enginePower,Color color, String modelName){
         this.nrDoors = nrDoors;
@@ -38,6 +40,9 @@ public abstract class Vehicle implements Movable {
     public void move() {
         x += currentSpeed * directionList[directionIndex][0];
         y += currentSpeed * directionList[directionIndex][1];
+
+        position.setX(x);
+        position.setY(y);
     }
 
     public void turnLeft(){
@@ -57,12 +62,21 @@ public abstract class Vehicle implements Movable {
     }
 
     public double getX(){
-        return x;
+        return position.getX();
     }
 
     public double getY(){
-        return y;
+        return position.getY();
     }
+
+    public void setX(double x){
+        position.setX(x);
+    }
+
+    public void setY(double y){
+        position.setY(y);
+    }
+
     public int getNrDoors(){
         return nrDoors;
     }
@@ -119,5 +133,3 @@ public abstract class Vehicle implements Movable {
         }
     }
 }
-
-    

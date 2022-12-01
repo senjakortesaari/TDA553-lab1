@@ -1,14 +1,22 @@
 package src2;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 //(car transport)
 public class Bärgarn extends Truck {
-	int loadedCars = 0;
+	private ArrayList<Car> loadedCars = new ArrayList<Car>();
+	private int loadCapacity;
+	
+	public ArrayList<Car> getLoadedCars() {
+		return loadedCars;
+	}
+
 	boolean state_flatbed = getStateOfFlatbed();
 
-	public Bärgarn(){
+	public Bärgarn(int loadCapacity){
 		super(2, 150, Color.pink,"Bärgarn");
+		this.loadCapacity = loadCapacity;
 	}
 
 	@Override
@@ -17,22 +25,30 @@ public class Bärgarn extends Truck {
 		return 0;
 	}
 
-	public void load(){
-		if(state_flatbed == false){
-			loadedCars += 1;
+	// If a xx of type.Car is close enough to Bärgarn, LoadCar()
+	public void load(Car car){
+		if(state_flatbed == false && checkIfCarIsClose(car, this) && loadedCars.size() < loadCapacity) {
+			loadedCars.add(car);
+			
+			System.out.println(loadedCars.size());
+			System.out.println("apapapapappa");
 		}
-		// If a xx of type.Car is close enough to Bärgarn, LoadCar()
+		
+		// Add so that if a car is loaded into a Bärgarn, it cannot be loaded into another Bärgarn
+		
 	}
 
-	public void unload(){
-		if(state_flatbed == false && loadedCars != 0){
-			loadedCars -= 1;
-		}
-	}  
+	public void unload(Car car){
+		double amount = 3;
+		double offsetX = this.getX() + amount;
+		double offsetY = this.getY() + amount;
 
-	public void checkIfCarIsClose(){
-		if(getX() > getX()+10 || getX() < getX()-10){
+		if(state_flatbed == false && loadedCars.size() >=1) {
+			loadedCars.remove(car);
 			
+			//set new coordinates for car range: 3
+			car.setX(offsetX);
+			car.setY(offsetY);
 		}
 	}
 }
