@@ -1,0 +1,23 @@
+. Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. 
+What is the contract for gas() and brake() in this type? Do the implementations of gas() and brake() in both Volvo
+and Scania follow this contract? Does your design follow the Liskov Substitution Principle?
+
+    Both gas and brake takes a double as an argument and then forwards the argument to incrementSpeed(), which   
+
+
+2. How did you handle duplicated code between Scania, the car transporters and the repair shops? 
+Explain how you decided when to use subclassing and when to use composition and delegation.
+    We chose which methods that they all shared between eachother, for example both Scania and Car transporter had a flatbed which could 
+    be lowered/lifted, so we
+
+    We chose to use subclassing when 
+
+
+
+
+3. Did you need to modify the design from lab 1 in order to make these extensions? 
+If so, how could you have noticed that your design from Lab 1 did not follow the
+Open-Closed Principle before you started working on Lab 2?
+
+We had to implement the super class vehicle since trucks were added. This meant that everything in the car class had
+to be moved into the vehicle class. 
