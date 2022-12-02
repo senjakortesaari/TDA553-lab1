@@ -274,21 +274,7 @@ class FirstTest{
         assertTrue(volvoBärgarn);
     }
 
-    @Test
-    public void test_withSaab_load_should_return_(){
-        Bärgarn bärgarn = new Bärgarn(10);
-        Saab95 saab = new Saab95();
-        
-        saab.setX(10);
-        bärgarn.setX(50);
 
-        saab.setY(9999);
-        bärgarn.setY(50);
-
-        Boolean saabBärgarn = bärgarn.checkIfCarIsClose(saab, bärgarn);
-
-        assertFalse(saabBärgarn);
-    }
 
     @Test
     public void testCarLoadCarIsCloseByAddingOneCarToTheTransporterTruckShouldReturnOne() {
@@ -313,6 +299,32 @@ class FirstTest{
         bärgarn.load(saabis);
         
         borgir.load(saab);
+
+        assertTrue(loadedCarsBär.size() > loadedCarsBorg.size());
+    }
+    @Test
+    public void testCarLoadCarIsCloseByAddingOneCarToTheCARREPAIRSHOPShouldReturnOne() {
+        CarRepairShop cps1 = new CarRepairShop(10);
+        CarRepairShop cps2 = new CarRepairShop(10);
+        Saab95 saab = new Saab95();
+        Saab95 saabis = new Saab95();
+        ArrayList<Car> loadedCarsBär = cps1.getLoadedCars();
+        ArrayList<Car> loadedCarsBorg = cps2.getLoadedCars();
+
+        saab.setX(48);
+        saabis.setX(48);
+        cps1.setX(50);
+        cps2.setX(50);
+
+        saab.setY(48);
+        saabis.setY(48);
+        cps1.setY(50);
+        cps2.setY(50);
+
+        cps1.loadCar(saab);
+        cps1.loadCar(saabis);
+        
+        cps2.loadCar(saab);
 
         assertTrue(loadedCarsBär.size() > loadedCarsBorg.size());
     }

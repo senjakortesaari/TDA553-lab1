@@ -19,9 +19,9 @@ public class HasPosition {
     public double getY(){
         return y;
     }
+    // Använd HasPosition som argument för mer dynamisk kod
 
-
-    public boolean getDistanceBetweenObjects(Car car, Truck truck) { // öuverlöud får diffirentiales types in tha futah💀❤️
+    public boolean getDistanceBetweenObjects(ObjectsWithPositions car, ObjectsWithPositions truck) {
         double range = 10;
         boolean xInterval = (car.getX() >= (truck.getX()) && getX() <= (truck.getX() + range) || car.getX() <= (truck.getX()) && car.getX() >= (truck.getX() - range));
         boolean yInterval = (car.getY() >= (truck.getY()) && car.getY() <= (truck.getY() + range) || car.getY() <= (truck.getY()) && car.getY() >= (truck.getY() - range));
@@ -32,10 +32,10 @@ public class HasPosition {
         return false;
     }
 
-    public boolean getDistanceBetweenObjects(Car car, CarRepairShop truck) { // öuverlöud får diffirentiales types in tha futah💀❤️
+    public boolean getDistanceBetweenObjects(Car car, CarRepairShop carRepairShop) {
         double range = 10;
-        boolean xInterval = (car.getX() >= (truck.getX()) && getX() <= (truck.getX() + range) || car.getX() <= (truck.getX()) && car.getX() >= (truck.getX() - range));
-        boolean yInterval = (car.getY() >= (truck.getY()) && car.getY() <= (truck.getY() + range) || car.getY() <= (truck.getY()) && car.getY() >= (truck.getY() - range));
+        boolean xInterval = (car.getX() >= (carRepairShop.getX()) && getX() <= (carRepairShop.getX() + range) || car.getX() <= (carRepairShop.getX()) && car.getX() >= (carRepairShop.getX() - range));
+        boolean yInterval = (car.getY() >= (carRepairShop.getY()) && car.getY() <= (carRepairShop.getY() + range) || car.getY() <= (carRepairShop.getY()) && car.getY() >= (carRepairShop.getY() - range));
         
         if(xInterval && yInterval) {
             return true;

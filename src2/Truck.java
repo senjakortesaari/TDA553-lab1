@@ -66,7 +66,5 @@ abstract class Truck extends Vehicle {
         throw new FlatbedException();
     }
 
-    public boolean checkIfCarIsClose(Car a, Truck b){
-        return position.getDistanceBetweenObjects(a, b);
-	}
+    
 }

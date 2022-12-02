@@ -3,7 +3,7 @@ import java.awt.*;
 
 import src2.exceptions.*;
 
-public abstract class Vehicle implements Movable {
+public abstract class Vehicle implements Movable, ObjectsWithPositions {
     
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -20,6 +20,7 @@ public abstract class Vehicle implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.position = new HasPosition();
     }
 
     //speed x index 0
@@ -107,6 +108,10 @@ public abstract class Vehicle implements Movable {
     public void setCurrentSpeed(double amount) { // Nu kan man setta till infinite speed... behöver exception men alla ser annorlunda ut för olika typer av bilar osv osv fuck
         currentSpeed = amount;
     }
+
+    public boolean checkIfVehiclesAreClose(ObjectsWithPositions a, ObjectsWithPositions b){
+        return position.getDistanceBetweenObjects(a, b);
+	}
     
     protected abstract double speedFactor();
     
