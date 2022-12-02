@@ -10,12 +10,12 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private double x;
-    private double y;
-    private HasPosition position = new HasPosition();
+    private double x; // Variable used to store changes of x-position
+    private double y; // Variable used to store changes of y-position
+    private HasPosition position = new HasPosition(); // For delegating 
     
 
-    public Vehicle(int nrDoors, double enginePower,Color color, String modelName){
+    public Vehicle(int nrDoors, double enginePower,Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
@@ -46,7 +46,7 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
         position.setY(y);
     }
 
-    public void turnLeft(){
+    public void turnLeft() {
         directionIndex -= 1;
         if (directionIndex == -1){
             directionIndex = 3;
@@ -54,7 +54,7 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
         move();
     }
 
-    public void turnRight(){
+    public void turnRight() {
         directionIndex += 1;
         if (directionIndex == 4){
             directionIndex = 0;
@@ -62,67 +62,67 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
         move();
     }
 
-    public double getX(){
+    public double getX() {
         return position.getX();
     }
 
-    public double getY(){
+    public double getY() {
         return position.getY();
     }
 
-    public void setX(double x){
+    public void setX(double x) {
         position.setX(x);
     }
 
-    public void setY(double y){
+    public void setY(double y) {
         position.setY(y);
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
-    public double getEnginePower(){
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     } 
 
-    public void setColor(Color clr){
+    public void setColor(Color clr) {
 	    color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine() {
 	    currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine() {
 	    currentSpeed = 0;
     }
 
-    public void setCurrentSpeed(double amount) { // Nu kan man setta till infinite speed... behöver exception men alla ser annorlunda ut för olika typer av bilar osv osv fuck
+    protected void setCurrentSpeed(double amount) { 
         currentSpeed = amount;
     }
 
-    public boolean checkIfVehiclesAreClose(ObjectsWithPositions a, ObjectsWithPositions b){
+    public boolean checkIfVehiclesAreClose(ObjectsWithPositions a, ObjectsWithPositions b) {
         return position.getDistanceBetweenObjects(a, b);
 	}
     
     protected abstract double speedFactor();
     
-    public void incrementSpeed(double amount){
+    public void incrementSpeed(double amount) {
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
-    public void decrementSpeed(double amount){
+    public void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
-    public void gas(double amount) throws InvalidRangeForGasException{
+    public void gas(double amount) throws InvalidRangeForGasException {
         if(amount < minGasAmount || amount > maxGasAmount) {
             throw new InvalidRangeForGasException();
         } else { 
@@ -130,7 +130,7 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
         }
     }
 
-    public void brake(double amount) throws InvalidRangeForBrakeException{
+    public void brake(double amount) throws InvalidRangeForBrakeException {
         if(amount < minBrakeAmount || amount > maxBrakeAmount) {
             throw new InvalidRangeForBrakeException();
         } else {
@@ -138,4 +138,3 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
         }
     }
 }
-// God Jul!
