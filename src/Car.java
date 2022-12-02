@@ -116,5 +116,3 @@ abstract class Car implements Movable {
     }
 }
 
-
-
