@@ -12,15 +12,16 @@ abstract class Truck extends Vehicle {
     // Constructors used to initialize different trucks
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
+        
     }
     
     @Override
-    public void incrementSpeed(double amount){
-        if(state_flatbed == true){
+    public void incrementSpeed(double amount) {
+        if(state_flatbed == true) {
             try {
                 flatbedException();
             } catch (FlatbedException e) {
-                System.out.println("DIIIIN MAMMMMMAAAA");
+                System.out.println("Cannot drive while flatbed is in use!");
             }
         
         } else {
@@ -30,8 +31,8 @@ abstract class Truck extends Vehicle {
     }
 
     public void WhileMoving() {
-        if(getCurrentSpeed() > 0){
-            flatbedDown();
+        if(getCurrentSpeed() > 0) {
+            flatbed_not_in_use();
         }
     }
     
@@ -39,32 +40,30 @@ abstract class Truck extends Vehicle {
         return state_flatbed;
     }
 
-    public void setStateOfFlatbed(boolean bool){
+    public void setStateOfFlatbed(boolean bool) {
         state_flatbed = bool;
     }
 
-    public void flatbed_up() {
-        cannotUseFlatbedWhilstDriving();
-        state_flatbed = true;
+    public void flatbed_in_use() {
+        checkIfTryingToUseFlatbedWhilstMoving();
+        setStateOfFlatbed(true);
     }
 
-    public void cannotUseFlatbedWhilstDriving() {
-        if(getCurrentSpeed() > 0) { // create method out of this, called cannotUseFlatbedWhilstDriving
+    public void checkIfTryingToUseFlatbedWhilstMoving() {
+        if(getCurrentSpeed() > 0) { 
             try {
                 flatbedException(); 
             } catch (FlatbedException e) {
-                System.out.println("DIIIIIIN MAAAAAAMMMMMAAAAAAAA");
+                System.out.println("Cannot use the flatbed while driving!");
             }
         }
     }
     
-    public void flatbedDown() {
+    public void flatbed_not_in_use() {
         state_flatbed = false;
     }
 
-    protected void flatbedException() throws FlatbedException{
+    protected void flatbedException() throws FlatbedException {
         throw new FlatbedException();
     }
-
-    
 }

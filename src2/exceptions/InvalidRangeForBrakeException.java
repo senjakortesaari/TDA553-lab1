@@ -6,5 +6,4 @@ public class InvalidRangeForBrakeException extends Exception {
     public InvalidRangeForBrakeException() {
         super(errorMsg);
     }
-    
 }

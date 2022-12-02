@@ -12,15 +12,15 @@ public class HasPosition {
 		this.y = y;
 	}
 
-	public double getX(){
+	public double getX() {
         return x;
     }
 
-    public double getY(){
+    public double getY() {
         return y;
     }
-    // Använd HasPosition som argument för mer dynamisk kod
 
+    // To see if the distance between two objects is valid for loading a car
     public boolean getDistanceBetweenObjects(ObjectsWithPositions car, ObjectsWithPositions truck) {
         double range = 10;
         boolean xInterval = (car.getX() >= (truck.getX()) && getX() <= (truck.getX() + range) || car.getX() <= (truck.getX()) && car.getX() >= (truck.getX() - range));

@@ -5,9 +5,7 @@ import java.util.ArrayList;
 public class CarRepairShop implements ObjectsWithPositions  {
     //Attributes:
     int carCapacity;
-
     HasPosition position = new HasPosition();
-    Bärgarn loadFunction = new Bärgarn(carCapacity);
     LoadAndUnloadCars loadAndUnloadCars = new LoadAndUnloadCars();
 
     //Constructor:
@@ -32,11 +30,12 @@ public class CarRepairShop implements ObjectsWithPositions  {
         position.setY(y);
     }
 
+    //Returns a list of cars that has been loaded into the repair shop
     public ArrayList<Car> getLoadedCars() {
         return loadAndUnloadCars.getLoadedCars();
     }
 
-    public void loadCar(Car car) { // Gör om, läs instruktionerna, ksk it behöver delegation
+    public void loadCar(Car car) { 
         loadAndUnloadCars.load(car, this);
     }
     

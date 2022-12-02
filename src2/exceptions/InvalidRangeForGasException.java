@@ -6,5 +6,4 @@ public class InvalidRangeForGasException extends Exception {
     public InvalidRangeForGasException() {
         super(errorMsg);
     }
-    
 }

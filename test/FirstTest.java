@@ -9,35 +9,35 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-class FirstTest{
+class FirstTest {
 
     @Test
-    public void test(){ // To test if Jupiter works
+    public void test() { // To test if Jupiter works
         assertEquals(2, 1+1);
     }
 
     // Below are tests for methods specific to Volvo240
     @Test
-    public void volvo_testGetCurrentSpeed_should_return_0(){
+    public void volvo_testGetCurrentSpeed_should_return_0() {
         Volvo240 volvo1 = new Volvo240();
         assertEquals(0, volvo1.getCurrentSpeed());
     }
 
     @Test
-    public void volvo_testspeedFactor_should_return_1_point_25(){
+    public void volvo_testspeedFactor_should_return_1_point_25() {
         Volvo240 volvo1 = new Volvo240();
         assertEquals(1.25, volvo1.speedFactor());
     }
     
     @Test
-    public void volvo_testIncrementSpeed_should_return_12_point_5(){
+    public void volvo_testIncrementSpeed_should_return_12_point_5() {
         Volvo240 volvo1 = new Volvo240();
         volvo1.incrementSpeed(10);
         assertEquals(12.5, volvo1.getCurrentSpeed());
     }
 
     @Test
-    public void volvo_testDecrementSpeed_should_return_0(){
+    public void volvo_testDecrementSpeed_should_return_0() {
         Volvo240 volvo1 = new Volvo240();
         volvo1.decrementSpeed(10);
         assertEquals(0, volvo1.getCurrentSpeed());
@@ -72,7 +72,7 @@ class FirstTest{
     }
 
     @Test
-    public void saab_test_incrementSpeed_with_turbo_on_should_return_16_point_25(){
+    public void saab_test_incrementSpeed_with_turbo_on_should_return_16_point_25() {
         Saab95 saab = new Saab95();
         saab.setTurboOn();
         saab.incrementSpeed(10);
@@ -80,14 +80,14 @@ class FirstTest{
     }
 
     @Test
-    public void saab_test_incrementSpeed_with_turbo_off_should_return_12_point_5(){
+    public void saab_test_incrementSpeed_with_turbo_off_should_return_12_point_5() {
         Saab95 saab = new Saab95();
         saab.setTurboOff();
         saab.incrementSpeed(10);
         assertEquals(12.5, saab.getCurrentSpeed());
     }
     @Test
-    public void test_decrementSpeed_with_turbo_on_should_return_0(){
+    public void test_decrementSpeed_with_turbo_on_should_return_0() {
         Saab95 saab = new Saab95();
         saab.setTurboOn();
         saab.decrementSpeed(10);
@@ -95,7 +95,7 @@ class FirstTest{
     }
 
     @Test
-    public void test_decrementSpeed_with_turbo_off_should_return_0(){
+    public void test_decrementSpeed_with_turbo_off_should_return_0() {
         Saab95 saab = new Saab95();
         saab.setTurboOff();
         saab.decrementSpeed(10);
@@ -141,39 +141,39 @@ class FirstTest{
         assertEquals(12.5, volvo.getY());
     }
     @Test
-    public void test_getNrDoors_should_return_4(){
+    public void test_getNrDoors_should_return_4() {
         Volvo240 volvo = new Volvo240();
         assertEquals(4, volvo.getNrDoors());
     }
 
     @Test
-    public void test_getEnginePower_should_return_100_for_volvo(){
+    public void test_getEnginePower_should_return_100_for_volvo() {
         Volvo240 volvo = new Volvo240();
         assertEquals(100, volvo.getEnginePower());
     }
 
     @Test
-    public void test_getColor_should_return_black_for_volvo(){
+    public void test_getColor_should_return_black_for_volvo() {
         Volvo240 volvo = new Volvo240();
         assertEquals(Color.black, volvo.getColor());
     }
 
     @Test
-    public void setColor(){
+    public void tet_set_Color() {
 	    Volvo240 volvo = new Volvo240();
         volvo.setColor(Color.red);
         assertEquals(Color.red, volvo.getColor());
     }
 
     @Test
-    public void test_startEngine_should_return_0_point_1(){
+    public void test_startEngine_should_return_0_point_1() {
         Volvo240 volvo = new Volvo240();
         volvo.startEngine();
         assertEquals(0.1, volvo.getCurrentSpeed());
     }
 
     @Test
-    public void test_stopEngine_should_return_0(){
+    public void test_stopEngine_should_return_0() {
         Volvo240 volvo = new Volvo240();
         volvo.stopEngine();
         assertEquals(0, volvo.getCurrentSpeed());
@@ -221,44 +221,44 @@ class FirstTest{
     @Test
     public void test_ramp_up_should_return_true() {
         Bärgarn bärgarn = new Bärgarn(10);
-        bärgarn.flatbed_up();
+        bärgarn.flatbed_in_use();
         assertEquals(true, bärgarn.getStateOfFlatbed());
     }
 
     @Test
     public void test_ramp_down_should_return_false() {
         Bärgarn bärgarn = new Bärgarn(10);
-        bärgarn.flatbedDown();
+        bärgarn.flatbed_not_in_use();
         assertEquals(false, bärgarn.getStateOfFlatbed());
     }
 
     @Test
     public void test_increment_speed_while_flatbed_up_scania() {
         Scania scania = new Scania();
-        scania.flatbed_up();
+        scania.flatbed_in_use();
         scania.incrementSpeed(10);
         assertEquals(0, scania.getCurrentSpeed());
+    }
     
-    }
-    @Test
-    public void test_increment_speed_while_flatbed_up_bärgarn(){
-        Bärgarn bärgarn = new Bärgarn(10);
-        bärgarn.flatbed_up();
-        bärgarn.incrementSpeed(10);
-        assertEquals(0, bärgarn.getCurrentSpeed());
-    }
+    // @Test
+    // public void test_increment_speed_while_flatbed_in_use_bärgarn_should_return_zero_cuz_cant_drive_bruv() {
+    //     Bärgarn bärgarn = new Bärgarn(10);
+    //     bärgarn.flatbed_in_use();
+    //     bärgarn.incrementSpeed(10);
+    //     assertEquals(0, bärgarn.getCurrentSpeed());
+    // }
+
+    // @Test
+    // public void test_flatbed_down_while_moving_scania() {
+    //     Scania scania = new Scania();
+    //     scania.incrementSpeed(125);
+    //     scania.move();
+    //     scania.flatbed_in_use();
+    //     assertEquals(false, scania.getStateOfFlatbed());
+    // }
 
     @Test
-    public void test_flatbed_down_while_moving_scania(){
-        Scania scania = new Scania();
-        scania.incrementSpeed(125);
-        scania.move();
-        scania.flatbed_up();
-        assertEquals(false, scania.getStateOfFlatbed());
-    }
-
-    @Test
-    public void test_withVolvo_load_should_return_(){
+    public void test_with_Volvo_load_should_return_true() {
         Volvo240 volvo = new Volvo240();
         Bärgarn bärgarn = new Bärgarn(10);
         HasPosition position = new HasPosition();
@@ -274,10 +274,8 @@ class FirstTest{
         assertTrue(volvoBärgarn);
     }
 
-
-
     @Test
-    public void testCarLoadCarIsCloseByAddingOneCarToTheTransporterTruckShouldReturnOne() {
+    public void test_load_transporter_if_a_car_is_close_should_return_one() {
         Bärgarn bärgarn = new Bärgarn(10);
         Bärgarn borgir = new Bärgarn(10);
         Saab95 saab = new Saab95();
@@ -285,6 +283,10 @@ class FirstTest{
         ArrayList<Car> loadedCarsBär = bärgarn.getLoadedCars();
         ArrayList<Car> loadedCarsBorg = borgir.getLoadedCars();
 
+    
+        bärgarn.flatbed_in_use();
+        borgir.flatbed_in_use();
+        
         saab.setX(48);
         saabis.setX(48);
         bärgarn.setX(50);
@@ -294,7 +296,7 @@ class FirstTest{
         saabis.setY(48);
         bärgarn.setY(50);
         borgir.setY(50);
-
+        
         bärgarn.load(saab);
         bärgarn.load(saabis);
         
@@ -302,8 +304,9 @@ class FirstTest{
 
         assertTrue(loadedCarsBär.size() > loadedCarsBorg.size());
     }
+    
     @Test
-    public void testCarLoadCarIsCloseByAddingOneCarToTheCARREPAIRSHOPShouldReturnOne() {
+    public void test_load_car_repair_shop_if_a_car_is_close_should_return_one() {
         CarRepairShop cps1 = new CarRepairShop(10);
         CarRepairShop cps2 = new CarRepairShop(10);
         Saab95 saab = new Saab95();
@@ -330,7 +333,7 @@ class FirstTest{
     }
     
     @Test
-    public void testCarUnload() {
+    public void test_transporter_unload_cars() {
         Bärgarn bärgarn = new Bärgarn(10);
         Saab95 saab = new Saab95();
         ArrayList<Car> loadedCars = bärgarn.getLoadedCars();
@@ -348,21 +351,7 @@ class FirstTest{
     }
 
     @Test
-    public void testCarRepairShopLoadCars() {
-        Saab95 saab = new Saab95();
-        CarRepairShop carRepairShop = new CarRepairShop(10);
-        
-        saab.setX(48);
-        carRepairShop.setX(50);
-
-        saab.setY(48);
-        carRepairShop.setY(50);
-
-        //carRepairShop.loadCar(saab);
-    }
-
-    @Test
-    public void testCarRepairShopUnloadCars() {
+    public void test_car_repair_shop_unload_cars() {
         Saab95 saab = new Saab95();
         CarRepairShop carRepairShop = new CarRepairShop(10);
 
@@ -373,8 +362,28 @@ class FirstTest{
         carRepairShop.setY(50);
 
         carRepairShop.loadCar(saab);
-        
-
-        assertEquals(1, carRepairShop.getLoadedCars().size());
+        carRepairShop.unloadCar(saab);
+    
+        assertEquals(0, carRepairShop.getLoadedCars().size());
     }
+
+    @Test
+    public void test_bärgarn_load_while_driving_should_return_0() {
+        Saab95 saab = new Saab95();
+        Bärgarn bärgarn = new Bärgarn(10);
+        ArrayList<Car> loadedCars = bärgarn.getLoadedCars();
+
+        bärgarn.setX(5);
+        saab.setX(0);
+
+        bärgarn.setY(5);
+        saab.setY(0);
+
+        bärgarn.incrementSpeed(100);
+        bärgarn.move();
+        bärgarn.load(saab);
+        
+        assertEquals(0, loadedCars.size());
+    }
+
 }
