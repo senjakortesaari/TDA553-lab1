@@ -25,9 +25,9 @@ public class DrawPanel extends JPanel {
         volvoPoint.x = x;
         volvoPoint.y = y;
         saabPoint.x = x;
-        saabPoint.y = y;
+        saabPoint.y = y+100; // 100 pixels apart
         scaniaPoint.x = x;
-        scaniaPoint.y = y;
+        scaniaPoint.y = y+200;
     }
 
     // Initializes the panel and reads the images
@@ -58,9 +58,9 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-      //  g.drawImage(raceTrackImage, 100, 100, null);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+       //g.drawImage(raceTrackImage, 100, 100, null);
+      g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+      g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
+      g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
     }
 }

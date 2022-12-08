@@ -13,6 +13,7 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
     private double x; // Variable used to store changes of x-position
     private double y; // Variable used to store changes of y-position
     private HasPosition position = new HasPosition(); // For delegating 
+    private boolean stateEngine; // ÅH EN BÅLEÅN FRÅN BÅLEÅNIEN
     
 
     public Vehicle(int nrDoors, double enginePower,Color color, String modelName) {
@@ -99,12 +100,20 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
 
     public void startEngine() {
 	    currentSpeed = 0.1;
+        setStateEngine(true);
     }
 
     public void stopEngine() {
 	    currentSpeed = 0;
+        setStateEngine(false);
     }
 
+    public boolean get_stateEngine() {
+        return stateEngine;
+    }
+    public void setStateEngine(boolean bool) {
+        stateEngine = bool;
+    }
     protected void setCurrentSpeed(double amount) { 
         currentSpeed = amount;
     }
@@ -115,18 +124,20 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
     
     protected abstract double speedFactor();
     
-    public void incrementSpeed(double amount) {
+    protected void incrementSpeed(double amount) {
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
-    public void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
     public void gas(double amount) throws InvalidRangeForGasException {
-        if(amount < minGasAmount || amount > maxGasAmount) {
+        if(get_stateEngine()) {
+            if(amount < minGasAmount || amount > maxGasAmount) {
             throw new InvalidRangeForGasException();
         } else { 
             incrementSpeed(amount);    
+        }
         }
     }
 

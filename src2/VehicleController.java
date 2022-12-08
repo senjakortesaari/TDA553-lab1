@@ -50,9 +50,6 @@ public class VehicleController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle Vehicle : Vehicles) {
-                if(Vehicle.getCurrentSpeed() != 0) {
-                    System.out.println("apapapap");
-                }
                 Vehicle.move();
                 int x = (int) Math.round(Vehicle.getX());
                 int y = (int) Math.round(Vehicle.getY());
@@ -69,6 +66,18 @@ public class VehicleController {
         for (Vehicle Vehicle : Vehicles) {
             Vehicle.gas(gas);
 
+        }
+    }
+
+    public void startEngine() {
+        for (Vehicle Vehicle : Vehicles) {
+            Vehicle.startEngine();
+        }
+    }
+
+    public void stopEngine() {
+        for (Vehicle Vehicle : Vehicles) {
+            Vehicle.stopEngine();
         }
     }
 }

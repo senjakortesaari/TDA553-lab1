@@ -12,12 +12,11 @@ abstract class Truck extends Vehicle {
     // Constructors used to initialize different trucks
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
-        
     }
     
     @Override
-    public void incrementSpeed(double amount) {
-        if(state_flatbed == true) {
+    protected void incrementSpeed(double amount) {
+        if(getStateOfFlatbed()) {
             try {
                 flatbedException();
             } catch (FlatbedException e) {

@@ -6,13 +6,13 @@ public class Scania extends Truck {
     int platform_angle;
     
     public Scania() {
-        super(2, 200, Color.yellow, "Scania");
+        super(2, 125, Color.yellow, "Scania");
     }
 
 	@Override
     protected double speedFactor() {
         //Decreases with heavier load
-        return 0;
+        return 1;
     }
     
     // Determines whether flatbed is up 

@@ -96,12 +96,30 @@ public class VehicleView extends JFrame{
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(startButton);
+        // This actionListener is for the start all cars button only
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                    VehicleC.startEngine();
+            }
+        });
 
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+        // This actionListener is for the stop all cars button only
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                    VehicleC.stopEngine();
+            }
+        });
+
+
+
+
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
