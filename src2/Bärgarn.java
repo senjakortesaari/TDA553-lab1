@@ -17,7 +17,7 @@ public class Bärgarn extends Truck {
 	@Override
 	protected double speedFactor() {
 		//Decreases with heavier load - could be a fun thing to add in the future :)
-		return 0;
+		return 1;
 	}
 
 	// If a xx of type.Car is close enough to Bärgarn, load car

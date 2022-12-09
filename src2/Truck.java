@@ -1,31 +1,34 @@
 package src2;
 import java.awt.*;
-
-import src2.exceptions.FlatbedException;
+import src2.exceptions.*;
 
 abstract class Truck extends Vehicle {
     // Instansattribut:
     private boolean state_flatbed; 
-    HasPosition position = new HasPosition();
-    
 
     // Constructors used to initialize different trucks
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
     
+
     @Override
-    protected void incrementSpeed(double amount) {
-        if(getStateOfFlatbed()) {
+    public void gas(double amount) throws InvalidRangeForGasException{
+        if(get_stateEngine()) {
+            if(amount < minGasAmount || amount > maxGasAmount) {
+            throw new InvalidRangeForGasException();
+        } else { 
+            if(getStateOfFlatbed()) {
             try {
                 flatbedException();
             } catch (FlatbedException e) {
                 System.out.println("Cannot drive while flatbed is in use!");
             }
-        
         } else {
             Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
             setCurrentSpeed(currentSpeed);
+        }  
+        }
         }
     }
 

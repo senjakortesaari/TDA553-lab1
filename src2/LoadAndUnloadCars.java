@@ -14,22 +14,22 @@ public class LoadAndUnloadCars {
 	}
 	
 	//LOAD
-    public void load(Car car, CarRepairShop b) {
-		if(position.getDistanceBetweenObjects(car, b)) {
+    public void load(Car car, CarRepairShop carRepairShop) {
+		if(position.getDistanceBetweenObjects(car, carRepairShop)) {
 			loadedCars.add(car);
 		}
 	}
-	public void load(Car car, Truck b) {
-		if(position.getDistanceBetweenObjects(car, b)) {
+	public void load(Car car, Truck truck) {
+		if(position.getDistanceBetweenObjects(car, truck)) {
 			loadedCars.add(car);
 		}
 	}
 
 	//UNLOAD
-	public void unload(Car car, CarRepairShop b) {
+	public void unload(Car car, CarRepairShop carRepairShop) {
 		double amount = 3;
-		double offsetX = b.getX() + amount;
-		double offsetY = b.getY() + amount;
+		double offsetX = carRepairShop.getX() + amount;
+		double offsetY = carRepairShop.getY() + amount;
 
 		if(loadedCars.size() >=1) {
 			loadedCars.remove(car);
@@ -39,10 +39,10 @@ public class LoadAndUnloadCars {
 			car.setY(offsetY);
 		}
 	}
-	public void unload(Car car, Truck b) {
+	public void unload(Car car, Truck truck) {
 		double amount = 3;
-		double offsetX = b.getX() + amount;
-		double offsetY = b.getY() + amount;
+		double offsetX = truck.getX() + amount;
+		double offsetY = truck.getY() + amount;
 
 		if(loadedCars.size() >=1) {
 			loadedCars.remove(car);

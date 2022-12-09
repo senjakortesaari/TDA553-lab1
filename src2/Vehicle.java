@@ -1,6 +1,5 @@
 package src2;
 import java.awt.*;
-
 import src2.exceptions.*;
 
 public abstract class Vehicle implements Movable, ObjectsWithPositions {
@@ -124,7 +123,7 @@ public abstract class Vehicle implements Movable, ObjectsWithPositions {
     
     protected abstract double speedFactor();
     
-    protected void incrementSpeed(double amount) {
+    private void incrementSpeed(double amount) {
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
     private void decrementSpeed(double amount) {
