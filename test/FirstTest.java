@@ -4,6 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import src2.exceptions.*;
+import src2.model.Bärgarn;
+import src2.model.Car;
+import src2.model.CarRepairShop;
+import src2.model.HasPosition;
+import src2.model.Saab95;
+import src2.model.Scania;
+import src2.model.Volvo240;
 import src2.*;
 import java.awt.*;
 import java.util.ArrayList;
