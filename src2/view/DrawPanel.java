@@ -17,6 +17,8 @@ public class DrawPanel extends JPanel {
     Point volvoPoint = new Point();
     Point saabPoint = new Point();
     Point scaniaPoint = new Point();
+
+    private int offset = 100;
     
 
     // TODO: Make this general for all cars
@@ -24,9 +26,9 @@ public class DrawPanel extends JPanel {
         volvoPoint.x = x;
         volvoPoint.y = y;
         saabPoint.x = x;
-        saabPoint.y = y+100; // 100 pixels apart
+        saabPoint.y = y + offset; // 100 pixels apart
         scaniaPoint.x = x;
-        scaniaPoint.y = y+200;
+        scaniaPoint.y = y + (offset * 2);
     }
 
     // Initializes the panel and reads the images

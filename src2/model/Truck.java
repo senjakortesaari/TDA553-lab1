@@ -5,7 +5,7 @@ import src2.exceptions.*;
 
 abstract class Truck extends Vehicle {
     // Instansattribut:
-    private boolean state_flatbed; 
+    private boolean stateOfFlatbed = false; 
 
     // Constructors used to initialize different trucks
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
@@ -13,41 +13,66 @@ abstract class Truck extends Vehicle {
     }
     
 
-    @Override
+    @Override // TODO: Skriv om hela den här!!!
     public void gas(double amount) throws InvalidRangeForGasException{
-        if(get_stateEngine()) {
-            if(amount < minGasAmount || amount > maxGasAmount) {
-            throw new InvalidRangeForGasException();
-        } else { 
-            if(getStateOfFlatbed()) {
-            try {
-                flatbedException();
-            } catch (FlatbedException e) {
-                System.out.println("Cannot drive while flatbed is in use!");
-            }
-        } else {
-            Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
-            setCurrentSpeed(currentSpeed);
-        }  
-        }
-        }
+        if(amount < minGasAmount || amount > maxGasAmount) {
+                throw new InvalidRangeForGasException();
+            } else {
+                if(getStateOfFlatbed() == false) {
+                    Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+                    setCurrentSpeed(currentSpeed);
+                } else {
+                    System.out.println("AYYYYYYYY");
+                }
+                // do down below if conditions are met
+                
+                }
+        // if(getStateOfFlatbed() == false) {
+        //     // Gas interval:
+        //     if(amount < minGasAmount || amount > maxGasAmount) {
+        //         throw new InvalidRangeForGasException();
+        //     } else {
+        //         Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+        //         setCurrentSpeed(currentSpeed);
+        //         }
+        //     } 
+        // else {
+        //     //  exceptions
+        //     System.out.println("Stanna smarthead");
+        // }
+        // if(get_stateEngine()) {
+        //     if(amount < minGasAmount || amount > maxGasAmount) {
+        //     throw new InvalidRangeForGasException();
+        // } else { 
+        //     if(getStateOfFlatbed()) {
+        //     try {
+        //         flatbedException();
+        //     } catch (FlatbedException e) {
+        //         System.out.println("Cannot drive while flatbed is in use!");
+        //     }
+        // } else {
+        //     Double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+        //     setCurrentSpeed(currentSpeed);
+        // }  
+        // }
+        // }
     }
 
     public void WhileMoving() {
         if(getCurrentSpeed() > 0) {
-            flatbed_not_in_use();
+            flatbedNotInUse();
         }
     }
     
     public boolean getStateOfFlatbed() {
-        return state_flatbed;
+        return stateOfFlatbed;
     }
 
     public void setStateOfFlatbed(boolean bool) {
-        state_flatbed = bool;
+        stateOfFlatbed = bool;
     }
 
-    public void flatbed_in_use() {
+    public void flatbedIsBeingUsed() {
         checkIfTryingToUseFlatbedWhilstMoving();
         setStateOfFlatbed(true);
     }
@@ -62,8 +87,8 @@ abstract class Truck extends Vehicle {
         }
     }
     
-    public void flatbed_not_in_use() {
-        state_flatbed = false;
+    public void flatbedNotInUse() {
+        stateOfFlatbed = false;
     }
 
     protected void flatbedException() throws FlatbedException {

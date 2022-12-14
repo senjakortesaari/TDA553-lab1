@@ -23,3 +23,6 @@ public class Application {
          vc.getTimer().start();
      }
 }
+
+
+//should make the window

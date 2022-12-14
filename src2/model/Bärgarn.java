@@ -8,9 +8,8 @@ public class Bärgarn extends Truck {
 	private int loadCapacity;
 	private LoadAndUnloadCars loadAndUnloadCars = new LoadAndUnloadCars();
 	
-
 	public Bärgarn(int loadCapacity) {
-		super(2, 150, Color.pink,"Bärgarn");
+		super(2, 150, Color.pink, "Bärgarn");
 		this.loadCapacity = loadCapacity;
 	}
 
