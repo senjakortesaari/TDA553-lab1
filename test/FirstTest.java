@@ -403,7 +403,6 @@ class FirstTest {
         assertEquals(0, sc.getPlatformAngle());
     }
 
-    // VI ÄR HÄR BRO
     @Test
     public void testIfTruckCanMoveWhenFlatbedInUse() throws InvalidRangeForGasException {
         Scania sc = new Scania();
@@ -414,6 +413,35 @@ class FirstTest {
         
         assertEquals(0, sc.getCurrentSpeed());
     }
+
+    @Test
+    public void testIfBärganCanUseFlatbedWhileMoving() throws InvalidRangeForGasException {
+        Bärgarn bärgarn = new Bärgarn(5);
+        bärgarn.gas(1);
+        bärgarn.useFlatbed();
+        assertFalse(bärgarn.getStateOfFlatbed());
+    }
+
+    @Test
+    public void testIfBärganCanMoveWhenFlatbedInUse() throws InvalidRangeForGasException {
+        Bärgarn bärgarn = new Bärgarn(5);
+        bärgarn.useFlatbed();
+        bärgarn.gas(1);
+        assertEquals(0, bärgarn.getCurrentSpeed());
+    }
+
+    @Test
+    public void testIfBärganCanLoadCars() {       
+        Bärgarn b = new Bärgarn(10);
+        b.setX(10);
+        b.setY(10);
+        Saab95 s = new Saab95();
+        s.setX(5);
+        s.setY(5);
+        b.useFlatbed();
+        b.load(s);
+        System.out.println(b.getLoadedCars().size());
+        }
 }
 
     

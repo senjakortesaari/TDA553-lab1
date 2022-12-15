@@ -36,7 +36,9 @@ public class CarRepairShop implements ObjectsWithPositions  {
     }
 
     public void loadCar(Car car) { 
-        loadAndUnloadCars.load(car, this);
+        if(getLoadedCars().size() < carCapacity) {
+            loadAndUnloadCars.load(car, this);
+        }
     }
     
     public void unloadCar(Car car) {

@@ -1,8 +1,8 @@
 *1. Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo* *and Scania. What is the contract for gas() and brake() in this type? Do the implementations of gas() and* *brake() in both Volvo and Scania follow this contract? Does your design follow the Liskov Substitution Principle?*
 
-    Both gas and brake takes an amount (double) as an argument and then forwards the argument to incrementSpeed() (case: gas) or decrementSpeed (case: brake), which alter the currentSpeed in relation to the the given amount. A corresponding contract can therefore be depicted as:
+    Both gas and brake takes an amount (double) as an argument and then forwards the argument to incrementSpeed() (case: gas) or decrementSpeed (case: brake), which alter the currentSpeed in relation to the the given amount if the vehicle is in a movable state. A corresponding contract can therefore be depicted as:
 
-        "If I (caller) give you an amount representative of a change in speed, you (gas() or brake()) will answer by adjusting currentSpeed arbitrarily of what amount was given"        
+        *Gas increments the speed of a vehicle if the vehicle is in a movable state, which doesn't break Liskov's Substitution Principle because the contract adheres to all subclasses*
 
     Liskovs substitution principle states that objects of a superclass should be replacable with objects of its subclasses without breaking the program, or more formally:
         

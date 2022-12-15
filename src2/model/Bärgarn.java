@@ -21,12 +21,14 @@ public class Bärgarn extends Truck {
 
 	// If a xx of type.Car is close enough to Bärgarn, load car
 	public void load(Car car) {
+		// To load a car, ramp needs to be down and transporter mustn't be out of space
 		if(getStateOfFlatbed() == true && getLoadedCars().size() < loadCapacity) {
 			loadAndUnloadCars.load(car, this);
 		}	
 	}
 
 	public void unload(Car car) {
+		//To unload a car, ramp needs to be down and transporter mustn't be out of space
 		if(getStateOfFlatbed() == true && getLoadedCars().size() < loadCapacity) {
 			loadAndUnloadCars.unload(car, this);
 		}	

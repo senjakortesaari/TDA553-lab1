@@ -10,41 +10,40 @@ public class Scania extends Truck {
 
 	@Override
     protected double speedFactor() {
-        //Decreases with heavier load is something to implement for fun
+        //Decreases with heavier load could be something to implement for fun - in the future
         return 1;
     }
     
-    // Determines whether flatbed is up 
+    // Determines whether flatbed is being used 
     @Override
-    public void flatbedIsBeingUsed() {
-        checkIfTryingToUseFlatbedWhilstMoving(); 
-        if(conditionsThatNeedToBeMetInOrderForPlatformToBeConsideredOpen() == true) {
+    public void useFlatbed() {
+        // Flatbed is considered in use if the angle is greater than zero degrees
+         if(platformAngle > 0) {
             setStateOfFlatbed(true);
         } else {
             setStateOfFlatbed(false);
         }
-    }
-    public boolean conditionsThatNeedToBeMetInOrderForPlatformToBeConsideredOpen() {
-         if(platformAngle > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    } 
 
-    public void increasePlatformAngle(int degrees) {
+    public void increasePlatformAngle(int degrees)  {
+        // Check if argument is valid
         if(platformAngle > 70) {
             throw new IllegalArgumentException("Valid range: [0, 70]"); 
         }
-        platformAngle = Math.min(platformAngle + degrees, 70);
-        setStateOfFlatbed(true);
+        // Failsafe - shouldn't be able to access flatbed while moving
+        if(getCurrentSpeed() == 0) {
+            platformAngle = Math.min(platformAngle + degrees, 70);
+            setStateOfFlatbed(true);
+        } else {
+            throw new IllegalAccessError("Cannot access flatbed while moving");
+        }   
     }
 
     public void decrease_platform_angle(int degrees) {
+        // Check if argument is valid
         if(platformAngle < 0) {
             throw new IllegalArgumentException("Valid range: [0, 70]");
         }
-        
         platformAngle = Math.max(platformAngle - degrees, 0);
     }
     
