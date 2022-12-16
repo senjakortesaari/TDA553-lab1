@@ -19,12 +19,7 @@ public class LoadAndUnloadCars {
 			loadedCars.add(car);
 		}
 	}
-	// public void load(Car car, Truck truck) {
-	// 	if(position.getDistanceBetweenObjects(car, truck)) {
-	// 		loadedCars.add(car);
-	// 	}
-	// }
-
+	
 	//UNLOAD
 	public void unload(Car car, ObjectsWithPositions carRepairShop) {
 		double amount = 3;
